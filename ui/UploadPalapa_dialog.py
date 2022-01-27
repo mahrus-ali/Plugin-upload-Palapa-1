@@ -230,9 +230,13 @@ class PalapaDialog(QtWidgets.QDialog, FORM_CLASS):
         responseAPIMeta = requests.post(urlMeta,files=filesMeta,params=params)
         print (responseAPIMeta.text)
         return responseAPIMeta.text
+    
+    # def uploadMinmeta(self) :
+    #     urlMeta = self.url+"/api/minmetadata"
+    #     params = {"akses":self.aksesMeta, "identifier":Lid,"KODESIMPUL":self.simpulJaringan}
+    #     responseAPImin = request.post(urlMeta,files=filesMeta,params=params)
         
-        #if self.checkMetadataExist(metadataPath['xml']) :
-            #print("metadata lengkap")
+       
     
   
 
