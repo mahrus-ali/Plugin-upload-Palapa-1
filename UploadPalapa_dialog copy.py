@@ -11,7 +11,6 @@ from qgis.core import QgsProject
 from qgis.PyQt.QtWidgets import QFileDialog
 from qgis.PyQt.QtCore import QSettings, QTranslator, QCoreApplication, QThreadPool
 
-
 # This loads your .ui file so that PyQt can populate your plugin with the elements from Qt Designer
 FORM_CLASS, _ = uic.loadUiType(os.path.join(
     os.path.dirname(__file__), 'UploadPalapa_dialog.ui'))
@@ -38,8 +37,13 @@ class PalapaDialog(QtWidgets.QDialog, FORM_CLASS):
         self.user=None
         self.pathMeta = None
         self.pathSLD = None
+        self.lineEdit_metadata.setReadOnly(True)
+        self.lineEdit_style.setReadOnly(True)
         self.radioButton_StyleBrowse.toggled.connect(self.browse_style.setEnabled)
         self.radioButton_StyleBrowse.toggled.connect(self.lineEdit_style.setEnabled)
+        self.pushButton_clearStyle.clicked.connect(self.clearStyle)
+        self.pushButton_clearMetadata.clicked.connect(self.clearMetadata)
+        
 
     # Connection Test Tab1 
     def connectionValuesChanged(self):
