@@ -275,11 +275,23 @@ class PalapaDialog(QtWidgets.QDialog, FORM_CLASS):
         self.lineEdit_style.setText(filePath)
         self.pathSLD = filePath
 
+    # upload Metadata Minimal
+    # def minMetadata(self, Lid )
+    #     workspace = self.grup
+    #     akses = self.akses
+    #     keyword = self.keyword
+    #     simpul = self.simpulJaringan
+    #     titile = self.layerTitle
+    #     abstral = self.abstract
+    #     urlMinmeta = self.url+"api/minmetadata"
+    #     params = {'AKSES':"", lallalalallala}
+    #     responseAPIMinmeta = request.post(urlMinmeta, params=params)
+    #     print (responseAPIMinmeta.text)
     # upload Metadata
     def uploadMetadata(self, Lid) :
         metadataPath = self.pathMeta
         filesMeta = {'file': open(metadataPath,'rb')}
-        params = {"akses":"PUBLIC","identifier":Lid,"KODESIMPUL":self.simpulJaringan}
+        params = {"akses":"PUBLIC","identifier":Lid,"keyword":"Lingkungan Terbangun","KODESIMPUL":self.simpulJaringan}
         urlMeta = self.url+"/api/meta/link"
         responseAPIMeta = requests.post(urlMeta,files=filesMeta,params=params)
         print (responseAPIMeta.text)
